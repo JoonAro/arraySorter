@@ -1,8 +1,8 @@
-import { useState } from "react"
-let boolean = false;
+import { useState, useRef } from "react"
 function App() {
   const [search, setSearch] = useState("");
   const [arraySorted, setArraySorted] = useState();
+  const [boolean, setBoolean] = useState(false);
   const searchHandler = (e) => {
     setSearch(e.target.value);
   }
@@ -10,11 +10,11 @@ function App() {
   //then move to the next pair b,c and do the same until you reach the end of the array and start again
   //create a variable with a boolean value. if false then go through the loop again
   const arranger = () => {
-    boolean = true;
+    setBoolean(true);
     for (a = 0, b = 1; b < arrLength; a++, b++) {
       if (arrToSort[a] > arrToSort[b]) {
         [arrToSort[a], arrToSort[b]] = [arrToSort[b], arrToSort[a]];
-        boolean = false;
+        setBoolean(false);
       }
     }
     sortedArray.unshift(arrToSort[b]);
