@@ -40,6 +40,7 @@ function App() {
     let result2 = "";
     let times = 0;
     const resultToPage = () => arrToSort.forEach((element) => {
+      console.log(element);
       times++
       element.toString();
       if (times !== arrToSort.length) {
